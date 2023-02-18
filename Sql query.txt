@@ -29,6 +29,13 @@ INSERT INTO Students VALUES(5,'Praneeth Wijesinghe', 'Kandy' , '4' );
 INSERT INTO Students VALUES(6,'Nuwani Herath', 'Rathnapura' , '1' );
 
 A)	select * from Students
+1	Kasun Gamage	kandy	2
+2	Daniel Sam	jaffna	3
+3	hansi Silva	Colombo	1
+4	Ranindu Herath	Galle	3
+5	Praneeth Wijesinghe	Kandy	4
+6	Nuwani Herath	Rathnapura	1
+
 
 B)	select Student_id,Name,City from Students
 	where City= 'kandy'
