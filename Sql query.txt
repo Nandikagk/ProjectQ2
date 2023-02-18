@@ -1,0 +1,64 @@
+II)	CREATE TABLE Courses (
+    Course_id int NOT NULL PRIMARY KEY,
+    CourseName varchar(255),
+	Lecturer_Name varchar(255),
+    
+    
+);
+
+
+CREATE TABLE Students (
+    Student_id int NOT NULL PRIMARY KEY,
+    Name varchar(255) NOT NULL,
+	City varchar(255),
+    Course_id INT FOREIGN KEY REFERENCES Courses
+);
+
+
+
+INSERT INTO Courses VALUES(1,'Web Development', 'M.M. Herath');
+INSERT INTO Courses VALUES(2,'Graphic Design', 'j.S.V. piyasena');
+INSERT INTO Courses VALUES(3,'mabile App Develoment', 'K.K.S. Dias');
+INSERT INTO Courses VALUES(4,'Java', 'U.H.S. Perera');
+
+INSERT INTO Students VALUES(1,'Kasun Gamage', 'kandy' , '2' );
+INSERT INTO Students VALUES(2,'Daniel Sam', 'jaffna' , '3' );
+INSERT INTO Students VALUES(3,'hansi Silva', 'Colombo' , '1' );
+INSERT INTO Students VALUES(4,'Ranindu Herath', 'Matara' , '3' );
+INSERT INTO Students VALUES(5,'Praneeth Wijesinghe', 'Kandy' , '4' );
+INSERT INTO Students VALUES(6,'Nuwani Herath', 'Rathnapura' , '1' );
+
+A)	select * from Students
+
+B)	select Student_id,Name,City from Students
+	where City= 'kandy'
+
+1	Kasun Gamage	kandy
+5	Praneeth Wijesinghe	Kandy
+
+
+C)	UPDATE Students
+	SET city='Galle'
+	WHERE Student_id=4;
+
+1	Kasun Gamage	kandy	2
+2	Daniel Sam	jaffna	3
+3	hansi Silva	Colombo	1
+4	Ranindu Herath	Galle	3
+5	Praneeth Wijesinghe	Kandy	4
+6	Nuwani Herath	Rathnapura	1
+
+
+
+D)
+
+	select Students.*, Courses.CourseName from Students
+	Left Join Courses
+	on Students.Course_id=Courses.Course_id
+
+1	Kasun Gamage	kandy	2	Graphic Design
+2	Daniel Sam	jaffna	3	mabile App Develoment
+3	hansi Silva	Colombo	1	Web Development
+4	Ranindu Herath	Galle	3	mabile App Develoment
+5	Praneeth Wijesinghe	Kandy	4	Java
+6	Nuwani Herath	Rathnapura	1	Web Development
